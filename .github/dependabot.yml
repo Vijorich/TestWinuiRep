@@ -4,6 +4,15 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
+registries:
+  public-nuget:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
+  github-nuget:
+    type: nuget-feed
+    url: https://nuget.pkg.github.com/ExampleOrganization/index.json
+    username: some-user
+    password: ${{secrets.NUGET_SECRET_GITHUB}}
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/" # Location of package manifests
