@@ -1,8 +1,12 @@
 version: 2
 registries:
-  nuget-public:
+  nuget-github:
     type: nuget-feed
-    url: 'https://api.nuget.org/v3/index.json'
+    url: https://nuget.pkg.github.com/Affinity-IT/index.json/
+    token: ${{secrets.NUGET_FEED_WRITE}}
+  public:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
 updates:
   - package-ecosystem: nuget
     directory: /
