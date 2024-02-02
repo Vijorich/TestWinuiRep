@@ -112,6 +112,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: MSIX Package
-        path: test\AppPackages
+        path: publish
+        if-no-files-found: error
         # path: ${{ env.Wap_Project_Directory }}\AppPackages
         
