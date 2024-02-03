@@ -71,6 +71,5 @@ jobs:
     - name: Upload MSIX package
       uses: actions/upload-artifact@v4.3.0
       with:
-        name: Upload Artifact
+        name: Artifact-${{ matrix.platform }}
         path: ${{ github.workspace }}\TestWinuiRep\\Packages
-        overwrite: true
