@@ -73,11 +73,3 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ github.workspace }}\TestWinuiRep\\Packages
-
-    - name: Display the path
-      shell: cmd
-      run: echo ${{ github.workspace }}
-
-    - name: Find the path
-      shell: cmd
-      run: echo Y | where Packages
