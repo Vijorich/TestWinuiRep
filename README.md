@@ -1,1 +1,1 @@
-# A repository for testing github actions, dependabot, and more
+# A repository for testing github actions, dependabot and more
