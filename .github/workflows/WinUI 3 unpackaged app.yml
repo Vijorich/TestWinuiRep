@@ -49,4 +49,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Upload app-${{ matrix.platform }}
-        path: ${{ env.Solution_Name }}\\bin
+        path: ${{ github.workspace }}\TestWinuiRep\\bin
