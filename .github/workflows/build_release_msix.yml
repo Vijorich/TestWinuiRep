@@ -40,7 +40,7 @@ jobs:
           Configuration: ${{ matrix.configuration }}
           
       - name: Decode the pfx
-        run: >
+        run: |
           $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.BASE64_ENCODED_PFX }}")
           $certificatePath = "GitHubActionsWorkflow.pfx"
           [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
