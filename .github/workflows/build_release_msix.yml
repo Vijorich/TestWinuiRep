@@ -15,6 +15,7 @@ jobs:
         platform:
           - x64
           - x86
+          - arm64
     runs-on: windows-latest
     env:
       Solution_Name: TestWinuiRep.sln
