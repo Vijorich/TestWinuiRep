@@ -20,16 +20,16 @@ jobs:
       
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0
           
-      - name: Install .NET Core
-        uses: actions/setup-dotnet@v4
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4.0.0
         with:
           dotnet-version: 8.0.x
           
-      - name: Setup MSBuild.exe
+      - name: setup-msbuild
         uses: microsoft/setup-msbuild@v2
         
       - name: Restore the application
@@ -65,7 +65,7 @@ jobs:
         run: Remove-Item -path GitHubActionsWorkflow.pfx
         
       - name: Upload MSIX package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.3.0
         with:
           name: MSIX Package-${{ matrix.platform }}
           path: ${{ github.workspace }}\TestWinuiRep\\Packages
