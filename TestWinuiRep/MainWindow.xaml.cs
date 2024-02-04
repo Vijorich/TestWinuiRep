@@ -14,6 +14,7 @@ public sealed partial class MainWindow : Window
         SetTitleBar(null);
 
         Version.Text = GetAppVersion();
+        Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
     }
 
     public static string GetAppVersion()
