@@ -10,9 +10,6 @@
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
-    <PackageCertificateThumbprint>54D1AEC527273379A579832BA596DA811C52AD48</PackageCertificateThumbprint>
-    <PackageCertificateKeyFile>TestWinuiRep_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
   </PropertyGroup>
 
   <ItemGroup>
