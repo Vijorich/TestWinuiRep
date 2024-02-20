@@ -31,6 +31,7 @@ jobs:
           dotnet publish
           -a ${{ matrix.platform }}
           -c ${{ matrix.configuration }}
+          /t:Publish
           -p:WindowsPackageType=None
           -p:SelfContained=true
           -p:WindowsAppSDKSelfContained=true
@@ -39,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MSIX Package-${{ matrix.platform }}
-          path: ${{ github.workspace }}\TestWinuiRep\bin\Release
+          path: ${{ github.workspace }}\TestWinuiRep\bin
