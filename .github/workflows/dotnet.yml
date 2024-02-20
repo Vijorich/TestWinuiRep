@@ -27,10 +27,18 @@ jobs:
           dotnet-version: '8'
 
       - name: Publish
-        run: dotnet publish -r win-${{ matrix.platform }} -c ${{ matrix.configuration }} -p:PublishProfile=win-${{ matrix.platform }} -p:WindowsPackageType=None -p:SelfContained=true -p:WindowsAppSDKSelfContained=true
+        run: >- 
+          dotnet publish
+          -r win-${{ matrix.platform }}
+          -c ${{ matrix.configuration }}
+          -p:PublishProfile=win-${{ matrix.platform }}
+          -p:WindowsPackageType=None
+          -p:SelfContained=true
+          -p:WindowsAppSDKSelfContained=true
+          --output ./pub TestWinuiRep.sln
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
         with:
           name: MSIX Package-${{ matrix.platform }}
-          path: ${{ github.workspace }}\TestWinuiRep\\bin
+          path: ${{ github.workspace }}\TestWinuiRep\\pub
