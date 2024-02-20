@@ -29,7 +29,6 @@ jobs:
       - name: Publish
         run: >- 
           dotnet publish
-          -r win-${{ matrix.platform }}
           -c ${{ matrix.configuration }}
           -p:PublishProfile=win-${{ matrix.platform }}
           -p:WindowsPackageType=None
