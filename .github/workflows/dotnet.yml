@@ -30,7 +30,7 @@ jobs:
         run: >- 
           dotnet publish
           TestWinuiRep/TestWinuiRep.csproj
-          -a win-${{ matrix.platform }}
+          -a ${{ matrix.platform }}
           -c ${{ matrix.configuration }}
           -p:WindowsPackageType=None
           -p:SelfContained=true
