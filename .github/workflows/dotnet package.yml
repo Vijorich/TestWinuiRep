@@ -30,4 +30,7 @@ jobs:
         run: dotnet restore --arch ${{ matrix.platform }}
         
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore --arch ${{ matrix.platform }}
+
+      - name: Publish
+        run: dotnet publish
