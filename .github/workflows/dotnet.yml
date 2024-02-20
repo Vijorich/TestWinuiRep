@@ -30,8 +30,8 @@ jobs:
         run: >- 
           dotnet publish
           TestWinuiRep/TestWinuiRep.csproj
+          -a win-${{ matrix.platform }}
           -c ${{ matrix.configuration }}
-          -p:PublishProfile=win-${{ matrix.platform }}
           -p:WindowsPackageType=None
           -p:SelfContained=true
           -p:WindowsAppSDKSelfContained=true
