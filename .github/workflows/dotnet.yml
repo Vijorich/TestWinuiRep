@@ -29,7 +29,6 @@ jobs:
       - name: Publish
         run: >- 
           dotnet publish
-          TestWinuiRep/TestWinuiRep.csproj
           -a ${{ matrix.platform }}
           -c ${{ matrix.configuration }}
           -p:WindowsPackageType=None
