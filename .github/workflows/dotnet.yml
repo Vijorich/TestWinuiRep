@@ -1,4 +1,4 @@
-name: Upload dotnet package
+name: Upload dotnet
 
 on:
   push:
@@ -25,9 +25,9 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8'
-          
+
       - name: Publish
-        run: dotnet publish -r win-${{ matrix.platform }} -c ${{ matrix.configuration }} -p:PublishProfile=win-${{ matrix.platform }}
+        run: dotnet publish -r win-${{ matrix.platform }} -c ${{ matrix.configuration }} -p:PublishProfile=win-${{ matrix.platform }} -p:WindowsPackageType=None -p:SelfContained=true -p:WindowsAppSDKSelfContained=true
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
