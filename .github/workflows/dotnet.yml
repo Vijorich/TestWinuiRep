@@ -28,9 +28,10 @@ jobs:
 
       - name: Publish
         run: >- 
-          dotnet publish
-          -a ${{ matrix.platform }}
-          -c ${{ matrix.configuration }}
+          dotnet publish 
+          -c Release 
+          -r win-${{ matrix.platform }} 
+          --self-contained true
           /t:Publish
           -p:WindowsPackageType=None
           -p:SelfContained=true
