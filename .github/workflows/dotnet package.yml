@@ -33,4 +33,4 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Publish
-        run: dotnet publish
+        run: dotnet publish -f net8.0-windows10.0.22621.0 -c Release -p:WindowsPackageType=None -p:SelfContained=true -p:WindowsAppSDKSelfContained=true
