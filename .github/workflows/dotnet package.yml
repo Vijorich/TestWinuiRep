@@ -28,6 +28,8 @@ jobs:
           
       - name: Restore dependencies
         run: dotnet restore --arch$env:Configuration
+        env:
+          Configuration: ${{ matrix.configuration }}
         
       - name: Build
         run: dotnet build --no-restore
