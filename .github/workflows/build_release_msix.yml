@@ -1,10 +1,10 @@
 name: Build release msix
 
-#on:
-#  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
     
 jobs:
   build:
@@ -20,14 +20,14 @@ jobs:
       
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v4.0.0
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 8
           
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v2
@@ -65,7 +65,7 @@ jobs:
         run: Remove-Item -path GitHubActionsWorkflow.pfx
         
       - name: Upload MSIX package
-        uses: actions/upload-artifact@v4.3.0
+        uses: actions/upload-artifact@v4
         with:
           name: MSIX Package-${{ matrix.platform }}
           path: ${{ github.workspace }}\TestWinuiRep\\Packages
