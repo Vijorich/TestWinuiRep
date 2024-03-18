@@ -59,6 +59,9 @@ jobs:
   release:
     name: release
     needs: build
+    strategy:
+      matrix:
+        platform: [arm64, x64, x86]
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
@@ -70,8 +73,5 @@ jobs:
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: |
-            MSIX Package-arm64
-            MSIX Package-x64
-            MSIX Package-x86
+          files: MSIX Package-${{ matrix.platform }}
           generate_release_notes: true
