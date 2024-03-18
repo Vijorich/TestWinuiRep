@@ -66,9 +66,9 @@ jobs:
         uses: actions/download-artifact@v4
 
       - run: |
-            zip -r MSIX Package-arm64.zip MSIX Package-arm64/
-            zip -r MSIX Package-x64.zip MSIX Package-x64/
-            zip -r MSIX Package-x86.zip MSIX Package-x86/
+            Compress-Archive -Path MSIX Package-arm64/* -Destination MSIX Package-arm64.zip
+            Compress-Archive -Path MSIX Package-x64/* -Destination MSIX Package-x64.zip
+            Compress-Archive -Path MSIX Package-x86/* -Destination MSIX Package-x86.zip
 
       - name: Output results
         run: dir -s
