@@ -36,6 +36,15 @@ jobs:
           -p:WindowsPackageType=None
           -p:SelfContained=true
           -p:WindowsAppSDKSelfContained=true
+          -p:PublishSingleFile=true
+          -p:WindowsPackageType=None
+          -p:Platform=${{ matrix.platform }} 
+          -p:RuntimeIdentifier=win-${{ matrix.platform }} 
+          -p:Configuration=Release
+          -p:TargetFramework=net8.0-windows10.0.22621.0
+          -p:PublishTrimmed=false
+          -p:DebugType=embedded
+          -p:PublishProtocol=FileSystem
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
