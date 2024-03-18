@@ -65,6 +65,11 @@ jobs:
       - name: Download math result for job 1
         uses: actions/download-artifact@v4
 
+      - run: |
+            zip -r MSIX Package-arm64.zip MSIX Package-arm64/
+            zip -r MSIX Package-x64.zip MSIX Package-x64/
+            zip -r MSIX Package-x86.zip MSIX Package-x86/
+
       - name: Output results
         run: dir -s
         
@@ -74,7 +79,7 @@ jobs:
           prerelease: true
           tag_name: "NightlyBuild"
           files: |
-            MSIX Package-arm64 
-            MSIX Package-x64 
-            MSIX Package-x86 
+            MSIX Package-arm64.zip
+            MSIX Package-x64.zip
+            MSIX Package-x86.zip
           generate_release_notes: true
