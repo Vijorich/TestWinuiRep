@@ -45,9 +45,10 @@ jobs:
           -p:PublishTrimmed=false
           -p:DebugType=embedded
           -p:PublishProtocol=FileSystem
+          -p:PublishDir=bin\Release\${{ matrix.platform }}
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
         with:
           name: MSIX Package-${{ matrix.platform }}
-          path: ${{ github.workspace }}\TestWinuiRep\bin
+          path: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}
