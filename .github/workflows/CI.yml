@@ -55,14 +55,20 @@ jobs:
           name: MSIX Package-${{ matrix.platform }}
           path: ${{ github.workspace }}/TestWinuiRep/bin/Release/${{ matrix.platform }}
           if-no-files-found: error
-
-      - name: Output results
-        run: dir -s
-
+          
+  release:
+    name: Multiply by 9
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v4
+        with:
+          name: MSIX Package-${{ matrix.platform }}.zip
       - name: Create release
         uses: softprops/action-gh-release@v2.0.2
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: ./TestWinuiRep/bin/Release/${{ matrix.platform }}/
+          files: MSIX Package-${{ matrix.platform }}.zip
           generate_release_notes: true
