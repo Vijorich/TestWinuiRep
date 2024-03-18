@@ -27,6 +27,6 @@
         <TextBlock
             x:Name="Version"
             HorizontalAlignment="Center"
-            FontSize="64" />
+            FontSize="32" />
     </StackPanel>
 </Window>

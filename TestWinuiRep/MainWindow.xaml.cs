@@ -21,7 +21,7 @@ public sealed partial class MainWindow : Window
         var SysInfoText = $"ProcessArchitecture {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}\n" +
             $"RuntimeIdentifier {System.Runtime.InteropServices.RuntimeInformation.RuntimeIdentifier}\n" +
             $"OSArchitecture {System.Runtime.InteropServices.RuntimeInformation.OSArchitecture}\n" +
-            $"FrameworkDescription {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}" +
+            $"FrameworkDescription {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}\n" +
             $"OSDescription {System.Runtime.InteropServices.RuntimeInformation.OSDescription}";
 
         Version.Text = $"{SysInfoText}";
