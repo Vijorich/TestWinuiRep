@@ -33,6 +33,7 @@ jobs:
           -r win-${{ matrix.platform }} 
           --sc true
           /t:Publish
+          -p:PublishReadyToRun=true
           -p:WindowsPackageType=None
           -p:SelfContained=true
           -p:WindowsAppSDKSelfContained=true
