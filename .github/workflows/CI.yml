@@ -31,18 +31,18 @@ jobs:
           dotnet publish 
           -c Release 
           -r win-${{ matrix.platform }} 
-          --self-contained true
+          --self-contained True
           /t:Publish
           -p:WindowsPackageType=None
-          -p:SelfContained=true
-          -p:WindowsAppSDKSelfContained=true
-          -p:PublishSingleFile=true
+          -p:SelfContained=True
+          -p:WindowsAppSDKSelfContained=True
+          -p:PublishSingleFile=True
           -p:WindowsPackageType=None
           -p:Platform=${{ matrix.platform }} 
           -p:RuntimeIdentifier=win-${{ matrix.platform }} 
           -p:Configuration=Release
           -p:TargetFramework=net8.0-windows10.0.22621.0
-          -p:PublishTrimmed=false
+          -p:PublishTrimmed=True
           -p:DebugType=embedded
           -p:PublishProtocol=FileSystem
           -p:PublishDir=bin\Release\${{ matrix.platform }}
