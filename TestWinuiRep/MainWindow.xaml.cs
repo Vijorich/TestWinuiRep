@@ -10,19 +10,21 @@ public sealed partial class MainWindow : Window
     {
         InitializeComponent();
 
-        ExtendsContentIntoTitleBar = true;
-        SetTitleBar(null);
+        Lang.Text = "test";
 
-        Version.Text = GetAppVersion();
-        Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
+        //ExtendsContentIntoTitleBar = true;
+        //SetTitleBar(null);
+
+        ////Version.Text = GetAppVersion();
+        //Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
     }
 
-    public static string GetAppVersion()
-    {
-        var package = Package.Current;
-        var packageId = package.Id;
-        var version = packageId.Version;
+    //public static string GetAppVersion()
+    //{
+    //    var package = Package.Current;
+    //    var packageId = package.Id;
+    //    var version = packageId.Version;
 
-        return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-    }
+    //    return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+    //}
 }
