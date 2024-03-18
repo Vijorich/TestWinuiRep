@@ -55,19 +55,8 @@ jobs:
           name: MSIX Package-${{ matrix.platform }}
           path: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}
 
-      - name: Fetch action
-        id: pl
-        uses: Rishabh510/Path-lister-action@master
-        with:
-          path: ".github/"
-          type: ".zip"
-
       - name: Output results
-        run: |
-          echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
-          for i in ${{ steps.pl.outputs.paths }}; do
-          echo $i
-          done
+        run: dir -s
 
       - name: Create release
         uses: softprops/action-gh-release@v2.0.2
