@@ -64,5 +64,5 @@ jobs:
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: ${{ github.workspace }}/TestWinuiRep/bin/Release/${{ matrix.platform }}/
+          files: ./TestWinuiRep/bin/Release/${{ matrix.platform }}/
           generate_release_notes: true
