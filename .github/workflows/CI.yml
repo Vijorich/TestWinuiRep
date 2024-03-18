@@ -55,6 +55,9 @@ jobs:
           name: MSIX Package-${{ matrix.platform }}
           path: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}
 
+      - name: test
+        run: ls -lhrt
+
       - name: Create release
         uses: softprops/action-gh-release@v2.0.2
         with:
