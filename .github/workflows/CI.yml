@@ -75,5 +75,8 @@ jobs:
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: MSIX Package-${{ matrix.platform }}
+          files: |
+            MSIX Package-arm64 
+            MSIX Package-x64 
+            MSIX Package-x86 
           generate_release_notes: true
