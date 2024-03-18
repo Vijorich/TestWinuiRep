@@ -18,11 +18,11 @@ public sealed partial class MainWindow : Window
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(null);
 
-        var SysInfoText = $"ProcessArchitecture {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}\n" +
-            $"RuntimeIdentifier {System.Runtime.InteropServices.RuntimeInformation.RuntimeIdentifier}\n" +
-            $"OSArchitecture {System.Runtime.InteropServices.RuntimeInformation.OSArchitecture}\n" +
-            $"FrameworkDescription {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}\n" +
-            $"OSDescription {System.Runtime.InteropServices.RuntimeInformation.OSDescription}";
+        var SysInfoText = $"ProcessArchitecture: {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}\n" +
+            $"RuntimeIdentifier: {System.Runtime.InteropServices.RuntimeInformation.RuntimeIdentifier}\n" +
+            $"OSArchitecture: {System.Runtime.InteropServices.RuntimeInformation.OSArchitecture}\n" +
+            $"FrameworkDescription: {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}\n" +
+            $"OSDescription: {System.Runtime.InteropServices.RuntimeInformation.OSDescription}";
 
         Version.Text = $"{SysInfoText}";
         Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
