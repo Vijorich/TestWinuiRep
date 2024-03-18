@@ -57,7 +57,7 @@ jobs:
           if-no-files-found: error
           
   release:
-    name: Multiply by 9
+    name: release
     needs: build
     runs-on: windows-latest
     steps:
@@ -70,5 +70,8 @@ jobs:
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: MSIX Package-${{ matrix.platform }}.zip
+          files: |
+            MSIX Package-arm64
+            MSIX Package-x64
+            MSIX Package-x86
           generate_release_notes: true
