@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -17,8 +18,28 @@ public sealed partial class MainWindow : Window
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(null);
 
-        Version.Text = $"Architecture: {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}";
+        var SysInfoText = $"ProcessArchitecture {System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture}\n" +
+            $"RuntimeIdentifier {System.Runtime.InteropServices.RuntimeInformation.RuntimeIdentifier}\n" +
+            $"OSArchitecture {System.Runtime.InteropServices.RuntimeInformation.OSArchitecture}\n" +
+            $"FrameworkDescription {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}";
+
+        Version.Text = $"{SysInfoText}";
         Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
+    }
+
+    public string architectureString(Windows.System.ProcessorArchitecture architecture)
+    {
+        return architecture switch
+        {
+            Windows.System.ProcessorArchitecture.X86 => "x86",
+            Windows.System.ProcessorArchitecture.Arm => "arm",
+            Windows.System.ProcessorArchitecture.X64 => "x64",
+            Windows.System.ProcessorArchitecture.Neutral => "neutral",
+            Windows.System.ProcessorArchitecture.Unknown => "unknown",
+            Windows.System.ProcessorArchitecture.Arm64 => "arm64",
+            Windows.System.ProcessorArchitecture.X86OnArm64 => "x86OnArm64",
+            _ => "???"
+        };
     }
 
     //public static string GetAppVersion()
