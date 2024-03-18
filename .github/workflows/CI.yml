@@ -46,14 +46,15 @@ jobs:
           -p:TargetFramework=net8.0-windows10.0.22621.0
           -p:DebugType=embedded
           -p:PublishProtocol=FileSystem
-          -p:PublishDir=bin\Release\${{ matrix.platform }}
+          -p:PublishDir=bin/Release/${{ matrix.platform }}
           -p:EnableMsixTooling=True
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
         with:
           name: MSIX Package-${{ matrix.platform }}
-          path: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}
+          path: ${{ github.workspace }}/TestWinuiRep/bin/Release/${{ matrix.platform }}
+          if-no-files-found: error
 
       - name: Output results
         run: dir -s
@@ -63,5 +64,5 @@ jobs:
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}\
+          files: ${{ github.workspace }}/TestWinuiRep/bin/Release/${{ matrix.platform }}/
           generate_release_notes: true
