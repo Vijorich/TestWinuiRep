@@ -1,6 +1,8 @@
-using Microsoft.UI.Xaml;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 
-using Windows.ApplicationModel;
+using Microsoft.UI.Xaml;
 
 namespace TestWinuiRep;
 
@@ -12,11 +14,11 @@ public sealed partial class MainWindow : Window
 
         Lang.Text = "test";
 
-        //ExtendsContentIntoTitleBar = true;
-        //SetTitleBar(null);
+        ExtendsContentIntoTitleBar = true;
+        SetTitleBar(null);
 
-        ////Version.Text = GetAppVersion();
-        //Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
+        Version.Text = "VersionTests";
+        Lang.Text = Windows.Globalization.ApplicationLanguages.Languages[0];
     }
 
     //public static string GetAppVersion()
@@ -26,5 +28,18 @@ public sealed partial class MainWindow : Window
     //    var version = packageId.Version;
 
     //    return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+    //}
+
+    //public static string GetTestVersion()
+    //{
+    //    StringBuilder sb = new StringBuilder();
+    //    Windows.Management.Deployment.PackageManager packageManager = new Windows.Management.Deployment.PackageManager();
+    //    foreach (var pkg in packageManager.FindPackages())
+    //    {
+    //        var version = pkg.Id.Version;
+    //        Debug.WriteLine(string.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision));
+    //        sb.AppendLine($"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}");
+    //    }
+    //    return sb.ToString();
     //}
 }
