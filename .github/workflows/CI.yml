@@ -56,9 +56,9 @@ jobs:
           path: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.0.2
         with:
           prerelease: true
           tag_name: "NightlyBuild"
-          files: ${{ github.workspace }}\TestWinuiRep\bin\Release\${{ matrix.platform }}\*.zip
+          files: MSIX Package-${{ matrix.platform }}\MSIX Package-${{ matrix.platform }}*.zip
           generate_release_notes: true
