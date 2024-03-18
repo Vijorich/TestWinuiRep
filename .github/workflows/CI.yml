@@ -31,11 +31,12 @@ jobs:
           dotnet publish 
           -c Release 
           -r win-${{ matrix.platform }} 
-          --self-contained true
+          --sc true
           /t:Publish
           -p:WindowsPackageType=None
           -p:SelfContained=true
           -p:WindowsAppSDKSelfContained=true
+          -p:PublishSingleFile=true
 
       - name: Upload MSIX package
         uses: actions/upload-artifact@v4
