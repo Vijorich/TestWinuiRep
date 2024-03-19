@@ -71,7 +71,9 @@ jobs:
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
       - name: Delete tag
-        run: gh release delete "NightlyBuild"
+        run: |
+          cd TestWinuiRep
+          gh release delete "NightlyBuild"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
