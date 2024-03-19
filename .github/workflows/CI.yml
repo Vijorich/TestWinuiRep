@@ -76,12 +76,17 @@ jobs:
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
       - name: Delete release
-        if: ${{ (gh release view "NightlyBuild") }}
+        id: delete-release
+        run: gh release view "NightlyBuild"
+
+      - name: The delete step has failed
+        if: ${{ success()}}
         run: gh release delete "NightlyBuild" --yes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create release
+        if: ${{ always() }}
         uses: softprops/action-gh-release@v2.0.2
         with:
           prerelease: true
