@@ -76,7 +76,7 @@ jobs:
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
       - name: Delete release
-        if: ${{ gh release view "NightlyBuild" }}
+        if: ${{ (gh release view "NightlyBuild") }}
         run: gh release delete "NightlyBuild" --yes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
