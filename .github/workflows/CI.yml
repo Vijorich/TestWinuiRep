@@ -72,7 +72,7 @@ jobs:
 
       - name: Delete tag
         run: |
-          cd TestWinuiRep
+          cd..
           gh release delete "NightlyBuild"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
