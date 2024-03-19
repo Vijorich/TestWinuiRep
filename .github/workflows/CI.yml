@@ -72,6 +72,8 @@ jobs:
 
       - name: Delete tag
         run: gh release delete "NightlyBuild"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Create release
         uses: softprops/action-gh-release@v2.0.2
