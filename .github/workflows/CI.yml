@@ -78,6 +78,8 @@ jobs:
       - name: Delete release
         id: delete-release
         run: gh release view "NightlyBuild"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: The delete step has failed
         if: ${{ success()}}
