@@ -55,6 +55,11 @@ jobs:
           path: ${{ github.workspace }}/TestWinuiRep/bin/Release/${{ matrix.platform }}
           if-no-files-found: error
           
+      - name: Delete release
+        run: gh release delete "NightlyBuild"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
   release:
     name: release
     needs: build
@@ -62,7 +67,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Download math result for job 1
+      - name: Download artifacts
         uses: actions/download-artifact@v4
 
       - run: |
@@ -70,13 +75,6 @@ jobs:
             Compress-Archive -Path "MSIX Package-x64/*" -Destination "MSIX Package-x64.zip"
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
-      - name: Delete tag
-        run: |
-          cd..
-          gh release delete "NightlyBuild"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
       - name: Create release
         uses: softprops/action-gh-release@v2.0.2
         with:
