@@ -89,7 +89,7 @@ jobs:
 
       - name: Create release
         if: ${{ always() }}
-        uses: softprops/action-gh-release@v2.0.2
+        uses: softprops/action-gh-release@v2.0.4
         with:
           prerelease: true
           tag_name: "NightlyBuild"
