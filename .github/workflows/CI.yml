@@ -76,11 +76,11 @@ jobs:
       - name: Delete release if exist
         id: delete-release
         run: gh release view "NightlyBuild" && gh release delete "NightlyBuild" -y --cleanup-tag 
-        env:
+        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create release
         if: ${{ always() }}
-        run: gh release create NightlyBuild ./*.zip -p --generate-notes 
+        run: gh release create NightlyBuild (get-item ./*.zip) -p --generate-notes 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
