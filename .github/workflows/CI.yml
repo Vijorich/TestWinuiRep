@@ -73,14 +73,8 @@ jobs:
             Compress-Archive -Path "MSIX Package-x64/*" -Destination "MSIX Package-x64.zip"
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
-      - name: Delete release if exist
+      - name: Delete release if exist then create release
         id: delete-release
-        run: gh release view "NightlyBuild" && gh release delete "NightlyBuild" -y --cleanup-tag 
+        run: gh release view "NightlyBuild" && gh release delete "NightlyBuild" -y --cleanup-tag ; gh release create NightlyBuild (get-item ./*.zip) -p --generate-notes 
         env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create release
-        if: ${{ always() }}
-        run: gh release create NightlyBuild (get-item ./*.zip) -p --generate-notes 
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
