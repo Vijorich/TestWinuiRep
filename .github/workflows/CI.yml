@@ -81,6 +81,6 @@ jobs:
 
       - name: Create release
         if: ${{ always() }}
-        run: gh release create NightlyBuild *.zip -p --generate-notes 
+        run: gh release create NightlyBuild ./*.zip -p --generate-notes 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
