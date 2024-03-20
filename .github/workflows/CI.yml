@@ -73,26 +73,14 @@ jobs:
             Compress-Archive -Path "MSIX Package-x64/*" -Destination "MSIX Package-x64.zip"
             Compress-Archive -Path "MSIX Package-x86/*" -Destination "MSIX Package-x86.zip"
 
-      - name: Delete release
+      - name: Delete release if exist
         id: delete-release
-        run: gh release view "NightlyBuild"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: The delete step has failed
-        if: ${{ success()}}
-        run: gh release delete "NightlyBuild" --yes
+        run: gh release view "NightlyBuild" && gh release delete "NightlyBuild" -y --cleanup-tag 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create release
         if: ${{ always() }}
-        uses: softprops/action-gh-release@v2.0.4
-        with:
-          prerelease: true
-          tag_name: "NightlyBuild"
-          files: |
-            MSIX Package-arm64.zip
-            MSIX Package-x64.zip
-            MSIX Package-x86.zip
-          generate_release_notes: true
+        run: gh release create NightlyBuild *.zip -p --generate-notes 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
