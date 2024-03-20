@@ -3,6 +3,9 @@ name: CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'TestWinuiRep/**'
+      - 'TestWinuiRep.sln'
 
 jobs:
   build:
@@ -29,7 +32,7 @@ jobs:
           dotnet publish 
           -c Release 
           -r win-${{ matrix.platform }} 
-          --self-contained True
+          --sc True
           /t:Publish
           -p:WindowsPackageType=None
           -p:SelfContained=True
